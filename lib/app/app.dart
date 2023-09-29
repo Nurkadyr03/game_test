@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:game_test/home/home.dart';
+import 'package:game_test/pages/home.dart';
 
 
 

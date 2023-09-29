@@ -41,7 +41,7 @@ const samerica = Continent(
   color: Color(0xffE7B1E5),
 );
 
-List <Continent>continents = [
+List <Continent> continents = [
   africa,
   asia,
   australia,

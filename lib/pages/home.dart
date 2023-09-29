@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:game_test/continents/app_color.dart';
 import 'package:game_test/continents/app_text.dart';
-
-import 'models/continent.dart';
-
+import 'package:game_test/pages/test_pages.dart';
+import 'package:game_test/home/models/continent.dart';
+import '../components/continent_card.dart';
 
 
 class HomePage extends StatelessWidget {
@@ -14,6 +14,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+   //var continents;
     return Scaffold(
       backgroundColor: AppColors.bgcolor,
       appBar: AppBar(
@@ -29,12 +30,12 @@ class HomePage extends StatelessWidget {
               icon: Icon(Icons.settings, color: AppColors.blue)),
           IconButton(
               onPressed: () {},
-              icon: Icon(Icons.more_vert, color: AppColors.black)),
+              icon: const Icon(Icons.more_vert, color: AppColors.black)),
         ],
       ),
       body: Column(
         children: [
-          Divider(
+          const Divider(
             color: AppColors.black,
             height: 2.0,
             indent: 30,
@@ -42,28 +43,18 @@ class HomePage extends StatelessWidget {
           ),
           Expanded(
             child: GridView.builder(
-              scrollDirection: Axis.vertical,
-                itemCount: continents.length,
+                padding: const EdgeInsets.all(10.0),
+               scrollDirection: Axis.vertical,
+               itemCount: continents.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2),
-                   
                 itemBuilder: (context, index) {
-                  final item=continents[index];
-                   
-                  return InkWell(
-                    onTap: () {},
-                    child: Card(
-                      child: Column(
-                        children: [
-                          Text(item.name),
-                          Expanded(
-                              child: SvgPicture.asset(
-                                  // ignore: deprecated_member_use
-                                  '/icons/continents/${item.icon}.svg',color:item.color))
-                        ],
-                      ),
-                    ),
-
+                  return ContinentsCard(
+                    item: continents[index],
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => const TestPage()));
+                    },
                   );
                 }),
           )
