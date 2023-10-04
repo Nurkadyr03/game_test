@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:game_test/continents/app_color.dart';
+import 'package:game_test/home/models/continent.dart';
+
 
 class TestPageAppBarTitle extends StatelessWidget {
   const TestPageAppBarTitle({
+    required this.tuurasy,
+    required this.katasy,
+    required this.index,
+    required this.item,
+    
     super.key,
   });
+  
+  final tuurasy;
+  final katasy;
+final Continent item;
+  final index;
 
   @override
   Widget build(BuildContext context) {
@@ -12,36 +24,40 @@ class TestPageAppBarTitle extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Card(
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0)),
-          child: const Padding(
-            padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
             child: Row(
               children: [
-                Icon(Icons.heart_broken, color: AppColors.yellow),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 5),
-                  child: Text('32'),
+                Text(katasy.toString(),
+                    style: const TextStyle(color: AppColors.red, fontSize: 20)),
+                const SizedBox(
+                  width: 30,
                 ),
-                Icon(Icons.add_circle, color: AppColors.green)
+                Text(tuurasy.toString(),
+                    style:
+                        const TextStyle(color: AppColors.green, fontSize: 20)),
               ],
             ),
           ),
         ),
-        const Text('3'),
+        Text(index.toString(),
+            style: const TextStyle(color: AppColors.yellow, fontSize: 30)),
         Row(
           children: [
             SizedBox(
-              width: 70,
-              height: 25,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    return Icon(Icons.favorite, color: AppColors.red);
-                  }),
+              width: 170,
+             // height: 25,
+               child: Text(item.name),
+               //ListView.builder(
+              //     scrollDirection: Axis.horizontal,
+              //     itemCount: 3,
+              //     itemBuilder: (context, index) {
+              //       return const Icon(Icons.favorite, color: AppColors.red);
+              //     }),
             ),
-            const SizedBox(width: 10.0),
+            const SizedBox(width: 20.0),
             const Icon(Icons.more_vert),
           ],
         ),

@@ -1,51 +1,70 @@
 import 'package:flutter/material.dart';
 import 'package:game_test/continents/app_text.dart';
+import 'package:game_test/home/models/n_america.dart';
+import 'package:game_test/home/models/s_america.dart';
+
+import 'package:game_test/home/models/suroo.dart';
+
+import 'asia.dart';
+import 'europe.dart';
+import 'africa.dart';
+import 'australia.dart';
 
 class Continent {
   const Continent(
-      {required this.name, required this.icon, required this.color});
+      {required this.name,
+      required this.icon,
+      required this.color,
+      this.suroo});
 
   final String name;
   final String icon;
   final Color color;
+  final List<Suroo>? suroo;
 }
 
-const asia = Continent(
+final asia = Continent(
   name: AppText.asia,
   icon: 'asia',
-  color: Color(0xffFE8D7D),
+  color: const Color(0xffFE8D7D),
+  suroo: asiaQuestions,
 );
-const africa = Continent(
+final africa = Continent(
   name: AppText.africa,
   icon: 'africa',
-  color: Color(0xffFFE52c),
+  color: const Color(0xffFFE52c),
+  suroo: africaQuestions,
 );
-const europe = Continent(
+final europe = Continent(
   name: AppText.europe,
   icon: 'europe',
-  color: Color(0xff7DA4FF),
+  color: const Color(0xff7DA4FF),
+  suroo: europeQuestions,
 );
-const australia = Continent(
+final australia = Continent(
   name: AppText.australia,
   icon: 'australia',
-  color: Color(0xff60E280),
+  color: const Color(0xff60E280),
+  suroo: australiaQuestions,
 );
-const namerica = Continent(
+final namerica = Continent(
   name: AppText.northAmerica,
   icon: 'north_america',
-  color: Color(0xffFFAD02),
+  color: const Color(0xffFFAD02),
+  suroo: nAmericaQuestions,
 );
-const samerica = Continent(
+final samerica = Continent(
   name: AppText.southAmerica,
   icon: 'south_america',
-  color: Color(0xffE7B1E5),
+  color: const Color(0xffE7B1E5),
+  suroo: sAmericaQuestions,
 );
 
-List <Continent> continents = [
-  africa,
+List<Continent> continents = [
   asia,
+  africa,
   australia,
   europe,
-  namerica,
   samerica,
+  namerica,
 ];
